@@ -15,12 +15,6 @@ const Home = () => {
       </Head>
       <Box mb='5'>
         <UnderlinedHeading>PORTFOLIO</UnderlinedHeading>
-        <Text>
-          See my works below. Unless explicitly stated otherwise,{' '}
-          <strong>
-            all their back-end and front-end parts were completely done by me.
-          </strong>
-        </Text>
       </Box>
       <Box>
         {projectsList.map((project, key) => (
@@ -57,7 +51,7 @@ const Home = () => {
                 ))}
               </Box>
               <a href={project.link} target='_blank' rel='noreferrer'>
-                <Button colorScheme='red'>More details</Button>
+                <Button colorScheme='red'>Visit</Button>
               </a>
             </Box>
             <Box width='50%'>
