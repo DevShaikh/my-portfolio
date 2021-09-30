@@ -2,7 +2,7 @@ const projectsList = [
   {
     title: 'Travello',
     description:
-      'Travello is a web platform that allows to book and sell local tours and tourist attractions all over the world.',
+      'Travello is a web platform that allows to Book events and more!',
     myRole:
       'I have developed the entire frontend and performed API integrations.',
     technologies: ['NextJs', 'Redux', 'NodeJs', 'ExpressJs', 'MongoDB'],

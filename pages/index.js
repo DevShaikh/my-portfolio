@@ -11,6 +11,7 @@ const Home = () => {
   return (
     <Box py='6' px='10'>
       <Head>
+        <link rel='shortcut icon' href='/logo-large.png' />
         <title>Portfolio | Ahmed Shaikh</title>
       </Head>
       <Box mb='5'>
@@ -18,8 +19,14 @@ const Home = () => {
       </Box>
       <Box>
         {projectsList.map((project, key) => (
-          <Flex mb='4' borderBottom='2px solid #efefef' py='5' key={key}>
-            <Box width='50%' pr='4'>
+          <Flex
+            mb='4'
+            borderBottom='2px solid #efefef'
+            py='5'
+            key={key}
+            flexDirection={['column-reverse', 'column-reverse', 'row', 'row']}
+          >
+            <Box width={['100%', '100%', '50%', '50%']} pr='4'>
               <Box mb='6'>
                 <Heading size='lg' fontWeight='medium' color='blackAlpha.900'>
                   {project.title}
@@ -54,7 +61,10 @@ const Home = () => {
                 <Button colorScheme='red'>Visit</Button>
               </a>
             </Box>
-            <Box width='50%'>
+            <Box
+              width={['100%', '100%', '50%', '50%']}
+              mb={['4', '4', '0', '0']}
+            >
               <Img src={project.image} />
             </Box>
           </Flex>
