@@ -27,19 +27,25 @@ const MobileMenu = () => {
       />
       <MenuList>
         <MenuItem>
-          <Heading size='sm' fontWeight='medium' my='2' width='max-content'>
-            <Link href='/'>Portfolio</Link>
-          </Heading>
+          <Link passHref href='/'>
+            <Heading size='sm' fontWeight='medium' my='2' width='max-content'>
+              Portfolio
+            </Heading>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <Heading size='sm' fontWeight='medium' my='2' width='max-content'>
-            <Link href='/contact'>Contact</Link>
-          </Heading>
+          <Link passHref href='/contact'>
+            <Heading size='sm' fontWeight='medium' my='2' width='max-content'>
+              Contact
+            </Heading>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <Heading size='sm' fontWeight='medium' my='2' width='max-content'>
-            <Link href='/images/Ahmed%20Shaikh%20Resume.pdf'>My Resume</Link>
-          </Heading>
+          <Link passHref href='/images/Ahmed%20Shaikh%20Resume.pdf'>
+            <Heading size='sm' fontWeight='medium' my='2' width='max-content'>
+              My Resume
+            </Heading>
+          </Link>
         </MenuItem>
       </MenuList>
     </Menu>
