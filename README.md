@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## My Portfolio Web
 
-Open [ahmed-shaikh.netlify.app](ahmed-shaikh.netlify.app) with your browser to see live portfilio.
+Open [ahmed-shaikh.netlify.app](https://ahmed-shaikh.netlify.app) with your browser to see live portfilio.
 
 ## Learn More
 
