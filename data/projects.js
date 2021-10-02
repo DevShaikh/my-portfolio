@@ -32,7 +32,7 @@ const projectsList = [
   {
     title: 'Github Finder',
     description:
-      'Github is a web application that allows to find github user and their details.',
+      'Github Finder is a web application that allows to find github user and their details.',
     myRole:
       'I have developed the entire frontend and performed API integrations between frontend and github.',
     technologies: ['React', 'NodeJs', 'ExpressJs', 'MongoDB'],
