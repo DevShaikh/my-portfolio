@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
         <Box
           width={['100%', '100%', '75%', '75%']}
           background='#fff'
-          overflowY={['initial', 'initial', 'auto', 'auto']}
+          overflowY='auto'
           height={['initial', 'initial', '100vh', '100vh']}
         >
           {children}
