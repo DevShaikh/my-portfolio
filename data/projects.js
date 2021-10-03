@@ -40,6 +40,15 @@ const projectsList = [
     image: '/images/portfolio/githubFinder.png',
   },
   {
+    title: 'Finance Logger',
+    description:
+      'Finance is a web application that allows to generate and keep track on financial logs. (Testing Project)',
+    myRole: 'I have developed the entire application.',
+    technologies: ['HTML5', 'CSS3', 'Javascript', 'Typescript'],
+    link: 'https://finance-logs.netlify.app',
+    image: '/images/portfolio/financeLogger.png',
+  },
+  {
     title: 'Tracalorie',
     description:
       "Tracalorie is a web application that allows to keep track on how much calories you've ate",
