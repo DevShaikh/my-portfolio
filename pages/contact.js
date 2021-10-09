@@ -17,7 +17,6 @@ const contact = () => {
   return (
     <Box pt='6' pb='10' px='10' minHeight='92.5vh'>
       <Head>
-        <link rel='shortcut icon' href='/logo-large.png' />
         <title>Portfolio | Contact</title>
       </Head>
 

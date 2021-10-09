@@ -25,9 +25,8 @@ button {
   text-decoration: none !important;
 }
 .sidebarAvatar img {
-  object-position: 0px -6px;
+  object-position: 0px -30px;
 }
-
 .socialLinks {
   margin: 0px 5px;
 }

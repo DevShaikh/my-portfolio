@@ -11,7 +11,6 @@ const Home = () => {
   return (
     <Box py='6' px='10'>
       <Head>
-        <link rel='shortcut icon' href='/logo-large.png' />
         <title>Portfolio | Ahmed Shaikh</title>
       </Head>
       <Box mb='5'>
