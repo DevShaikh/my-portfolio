@@ -5,7 +5,7 @@ import { Img } from '@chakra-ui/image'
 import { Button } from '@chakra-ui/button'
 import { Tag } from '@chakra-ui/tag'
 
-import projectsList from '../data/projects'
+import projectsList from '../data/Projects.json'
 
 const Home = () => {
   return (
