@@ -17,7 +17,7 @@
   },
   {
     "title": "File Instant",
-    "description": "File Instant is a web application that allows to download your favourite softwares for free in cheap price. ( Testing Project )",
+    "description": "File Instant is a web application that allows to download your favourite softwares for free. ( Testing Project )",
     "myRole": "I have developed the entire application.",
     "technologies": ["React", "NodeJs"],
     "link": "https://file-instant.netlify.app",
