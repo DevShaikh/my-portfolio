@@ -16,6 +16,14 @@
     "image": "/images/portfolio/devshop.png"
   },
   {
+    "title": "File Instant",
+    "description": "File Instant is a web application that allows to download your favourite softwares for free in cheap price. ( Testing Project )",
+    "myRole": "I have developed the entire application.",
+    "technologies": ["React", "NodeJs"],
+    "link": "https://file-instant.netlify.app",
+    "image": "/images/portfolio/fileInstant.png"
+  },
+  {
     "title": "Contact Keeper",
     "description": "Contact Keeper is a web platform that allows to save and delete your contacts and access from anywhere by login in Contact Keeper.",
     "myRole": "I have developed the entire frontend as well as backend and performed API integrations between them.",
