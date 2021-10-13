@@ -23,8 +23,8 @@ const contact = () => {
       <Box mb='4'>
         <UnderlinedHeading>ABOUT ME</UnderlinedHeading>
         <Text>
-          Hi, I am a Junior Full stack Developer having experience of around 3
-          year of building web apps that just work across all platforms and
+          Hi, I am a Junior Full-stack Developer having experience of around 3
+          years of building web apps that just work across all platforms and
           browsers mainly using JavaScript with its frameworks and many other
           modern tools and technologies with the most latest techniques.
         </Text>
