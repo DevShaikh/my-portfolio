@@ -25,7 +25,11 @@ button {
   text-decoration: none !important;
 }
 .sidebarAvatar img {
-  object-position: 0px -30px;
+  object-position: 10px 0px;
+  transform: scale(1.4);
+}
+.sidebarAvatar {
+  overflow: hidden;
 }
 .socialLinks {
   margin: 0px 5px;

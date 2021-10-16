@@ -36,7 +36,7 @@ const Sidebar = () => {
         <Avatar
           size='2xl'
           name='Ahmed Shaikh'
-          src='/images/profile.jpg'
+          src='/images/profile.jpeg'
           mb='4'
           className='sidebarAvatar'
         />
