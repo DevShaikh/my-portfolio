@@ -1,33 +1,19 @@
-import {
-  BrainCircuit,
-  Cloud,
-  Code2,
-  Database,
-  LayoutDashboard,
-  Lightbulb,
-  PanelsTopLeft,
-  ShieldCheck,
-  Workflow,
-  Wrench,
-  type LucideIcon,
-} from 'lucide-react';
+import { BrainCircuit, Code2, Lightbulb, ShieldCheck, type LucideIcon } from 'lucide-react';
 import { skills } from '@/content/skills';
 
 const skillIcons: Record<string, { icon: LucideIcon; color: string; wash: string }> = {
-  'Core stack': { icon: Code2, color: 'text-emerald-300', wash: 'bg-emerald-300/10' },
-  'Product & strategy': { icon: Lightbulb, color: 'text-amber-200', wash: 'bg-amber-200/10' },
-  Frontend: { icon: PanelsTopLeft, color: 'text-sky-300', wash: 'bg-sky-300/10' },
-  'Backend & APIs': { icon: Workflow, color: 'text-cyan-200', wash: 'bg-cyan-200/10' },
-  'AI & automation': { icon: BrainCircuit, color: 'text-lime-200', wash: 'bg-lime-200/10' },
-  'Databases & data': { icon: Database, color: 'text-orange-200', wash: 'bg-orange-200/10' },
-  'Web product delivery': {
-    icon: LayoutDashboard,
-    color: 'text-teal-200',
-    wash: 'bg-teal-200/10',
+  'Product thinking & delivery': {
+    icon: Lightbulb,
+    color: 'text-amber-200',
+    wash: 'bg-amber-200/10',
   },
-  'Cloud & deployment': { icon: Cloud, color: 'text-blue-200', wash: 'bg-blue-200/10' },
-  'Security & auth': { icon: ShieldCheck, color: 'text-rose-200', wash: 'bg-rose-200/10' },
-  'Tools & workflow': { icon: Wrench, color: 'text-violet-200', wash: 'bg-violet-200/10' },
+  'Full-stack engineering': { icon: Code2, color: 'text-sky-300', wash: 'bg-sky-300/10' },
+  'AI & automation': { icon: BrainCircuit, color: 'text-lime-200', wash: 'bg-lime-200/10' },
+  'Data, security & operations': {
+    icon: ShieldCheck,
+    color: 'text-rose-200',
+    wash: 'bg-rose-200/10',
+  },
 };
 
 export function Skills() {
@@ -43,13 +29,13 @@ export function Skills() {
             Capabilities
           </p>
           <h2 id="skills-title" className="mt-3 text-3xl font-bold tracking-tight text-white">
-            Tools and systems I use to build production-grade software.
+            Capabilities built around shipping useful software.
           </h2>
         </div>
 
         <div className="mt-10 grid gap-4 lg:grid-cols-2">
-          {skills.map((group, index) => {
-            const visual = skillIcons[group.label] ?? skillIcons['Core stack'];
+          {skills.map((group) => {
+            const visual = skillIcons[group.label];
             const Icon = visual.icon;
 
             return (
@@ -69,10 +55,11 @@ export function Skills() {
                       {group.label}
                     </h3>
                   </div>
-                  <span className="font-mono text-xs text-slate-600">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
                 </div>
+
+                <p className="mb-4 max-w-xl text-sm leading-6 text-slate-400">
+                  {group.description}
+                </p>
 
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (

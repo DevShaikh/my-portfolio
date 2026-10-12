@@ -14,6 +14,7 @@ export const profileSchema = z.object({
 
 export const skillGroupSchema = z.object({
   label: z.string().min(2),
+  description: z.string().min(20),
   items: z.array(z.string().min(1)).min(1),
 });
 

@@ -13,8 +13,12 @@ describe('content integrity', () => {
 
   it('skills have no empty groups or duplicate items within a group', () => {
     for (const g of skills) {
+      expect(g.description.length).toBeGreaterThanOrEqual(20);
       expect(new Set(g.items.map((i) => i.toLowerCase())).size).toBe(g.items.length);
     }
+    expect(skills).toHaveLength(4);
+    const allItems = skills.flatMap((g) => g.items.map((item) => item.toLowerCase()));
+    expect(new Set(allItems).size).toBe(allItems.length);
   });
 
   it('portfolio includes at least one project showcase entry', () => {
