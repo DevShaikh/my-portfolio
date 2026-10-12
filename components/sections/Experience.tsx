@@ -1,6 +1,6 @@
 const experience = [
   {
-    title: 'Full-Stack Software Engineer',
+    title: 'Full-Stack Engineer',
     company: 'Quantum Skye Technologies',
     period: 'Jan 2022 – Sep 2026',
     description:
