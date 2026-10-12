@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    color-scheme: dark;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-slate-950 font-sans text-base leading-relaxed text-slate-100 antialiased;
+    background-image: radial-gradient(circle at top, rgba(16, 185, 129, 0.14), transparent 28%);
+  }
+
+  a {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.7s ease-out both;
+  }
+
+  .animate-float {
+    animation: floaty 5s ease-in-out infinite;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-emerald-400;
+  }
+
+  ::selection {
+    @apply bg-emerald-500/30;
+  }
+}
