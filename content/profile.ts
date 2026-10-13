@@ -2,7 +2,7 @@ import { profileSchema } from './schema';
 
 // Facts here come from the resume. Keep them identical to it.
 export const profile = profileSchema.parse({
-  name: 'Ahmed Shaikh',
+  name: 'Muhammad Ahmed Shaikh',
   role: 'Full-Stack Engineer',
   headline: 'I build full-stack systems that make real work easier.',
   intro:

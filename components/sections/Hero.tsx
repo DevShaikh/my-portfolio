@@ -28,6 +28,8 @@ export function Hero() {
           </div>
 
           <h1 className="mt-6 text-5xl font-semibold leading-[1.04] text-white sm:text-6xl">
+            Muhammad
+            <br />
             Ahmed Shaikh<span className="text-emerald-400">.</span>
           </h1>
 
