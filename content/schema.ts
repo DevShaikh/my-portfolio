@@ -30,6 +30,29 @@ export const projectSchema = z.object({
   links: z.array(z.object({ label: z.string().min(1), href: z.string().url() })).default([]),
 });
 
+export const experienceGroupSchema = z.object({
+  label: z.string().min(2),
+  bullets: z.array(z.string().min(1)).min(1),
+});
+
+export const experienceEntrySchema = z.object({
+  title: z.string().min(2),
+  company: z.string().min(2),
+  period: z.string().min(2),
+  description: z.string().min(20),
+  groups: z.array(experienceGroupSchema).default([]),
+  skills: z.array(z.string().min(1)).min(1),
+});
+
+export const moreClientWorkSchema = z.object({
+  title: z.string().min(2),
+  description: z.string().min(20),
+  tags: z.array(z.string().min(1)).min(2).max(3),
+});
+
 export type Profile = z.infer<typeof profileSchema>;
 export type SkillGroup = z.infer<typeof skillGroupSchema>;
 export type Project = z.infer<typeof projectSchema>;
+export type ExperienceEntry = z.infer<typeof experienceEntrySchema>;
+export type ExperienceGroup = z.infer<typeof experienceGroupSchema>;
+export type MoreClientWork = z.infer<typeof moreClientWorkSchema>;

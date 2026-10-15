@@ -6,7 +6,12 @@ import {
   ShoppingBag,
   Sparkles,
 } from 'lucide-react';
-import { projects } from '@/content/projects';
+import {
+  moreClientWork,
+  moreClientWorkNote,
+  moreClientWorkTitle,
+  projects,
+} from '@/content/projects';
 
 const projectVisuals = [
   {
@@ -190,6 +195,35 @@ export function Projects() {
             ))}
           </div>
         </div>
+
+        <section className="mt-8" aria-labelledby="more-client-work-title">
+          <div className="border-b border-slate-800 pb-4">
+            <h3 id="more-client-work-title" className="text-lg font-semibold text-white">
+              {moreClientWorkTitle}
+            </h3>
+            <p className="mt-1 text-sm text-slate-500">{moreClientWorkNote}</p>
+          </div>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {moreClientWork.map((item) => (
+              <li key={item.title}>
+                <article className="h-full rounded-md border border-white/10 bg-slate-900/50 p-4 transition-colors hover:border-emerald-300/25">
+                  <h4 className="font-semibold text-white">{item.title}</h4>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">{item.description}</p>
+                  <ul className="mt-3 flex flex-wrap gap-2" aria-label={`${item.title} skills`}>
+                    {item.tags.map((tag) => (
+                      <li
+                        key={tag}
+                        className="rounded-sm border border-white/[0.08] bg-black/20 px-2 py-1 text-xs font-medium text-slate-300"
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <div className="mt-14">
           <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-slate-800 pb-4">

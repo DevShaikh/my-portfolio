@@ -3,7 +3,7 @@ import { profile } from '@/content/profile';
 const metrics = [
   { value: '4+', label: 'Years of experience' },
   { value: '15+', label: 'AI script types built' },
-  { value: '3', label: 'Industries served' },
+  { value: '15+', label: 'Projects delivered' },
 ];
 
 const strengths = [

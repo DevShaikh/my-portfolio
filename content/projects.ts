@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { projectSchema } from './schema';
+import { moreClientWorkSchema, projectSchema } from './schema';
 
 export const projects = z.array(projectSchema).parse([
   {
@@ -8,7 +8,6 @@ export const projects = z.array(projectSchema).parse([
     summary:
       'A production SaaS platform for real-estate investors that combines deal analysis, AI-generated scripts, and user workflows in one operating system.',
     role: 'Full Stack Engineer',
-    period: '2023 — 2024',
     stack: ['Next.js', 'Node.js', 'Prisma', 'MongoDB', 'Anthropic Claude API', 'Stripe'],
     problem:
       'Investment teams were relying on repetitive research and fragmented processes, which slowed deal evaluation and caused inconsistent follow-up quality.',
@@ -25,7 +24,6 @@ export const projects = z.array(projectSchema).parse([
     summary:
       'A deal and workflow platform for property teams to manage offers, buyer matching, activity, and updates in a single system.',
     role: 'Full Stack Engineer',
-    period: '2022 — 2023',
     stack: ['Next.js', 'Node.js', 'Prisma', 'Socket.io', 'Stripe', 'Recharts'],
     problem:
       'Teams were juggling scattered deal activity across spreadsheets and disconnected communications, creating blind spots and slow decisions.',
@@ -42,7 +40,6 @@ export const projects = z.array(projectSchema).parse([
     summary:
       'A multi-role property operations platform for member management, reporting, dashboards, and admin workflows across property operations.',
     role: 'Full Stack Engineer',
-    period: '2021 — 2022',
     stack: ['Next.js', 'Express.js', 'Prisma', 'MongoDB', 'JWT', 'Tailwind CSS'],
     problem:
       'Property teams needed a clearer operational system for member workflows, role-based access, and day-to-day administration without dependency on fragmented tools.',
@@ -59,7 +56,6 @@ export const projects = z.array(projectSchema).parse([
     summary:
       'A marketplace product with dynamic listing flows, real-time interactions, and a smooth buying experience across multi-country commerce needs.',
     role: 'Full Stack Engineer',
-    period: '2021 — 2022',
     stack: ['Next.js 14', 'TypeScript', 'Socket.io', 'NextAuth', 'Tailwind CSS', 'Zustand'],
     problem:
       'The product needed a more scalable and consistent commerce experience across listings, real-time engagement, and cross-country user flows.',
@@ -69,5 +65,48 @@ export const projects = z.array(projectSchema).parse([
       'Delivered a cleaner, more responsive product experience with better frontend structure and available product workflows.',
     ],
     links: [],
+  },
+]);
+
+export const moreClientWorkTitle = 'More client work';
+export const moreClientWorkNote =
+  'Part of 15+ client projects. Details are generalized for confidentiality.';
+
+export const moreClientWork = z.array(moreClientWorkSchema).parse([
+  {
+    title: 'User and admin dashboards',
+    description:
+      'Multi-role dashboards for client SaaS products: separate user and admin experiences on top of a backend API.',
+    tags: ['React', 'Node.js', 'REST APIs'],
+  },
+  {
+    title: 'Admin portals and CMS tooling',
+    description:
+      'Admin portals and content management screens that let clients manage users, content and operations themselves.',
+    tags: ['Admin panels', 'CMS', 'Role-based access'],
+  },
+  {
+    title: 'Backend APIs and integrations',
+    description:
+      'REST APIs and third-party integrations behind web dashboards, landing pages and client products.',
+    tags: ['Node.js', 'Express.js', 'REST APIs'],
+  },
+  {
+    title: 'CMS-driven websites',
+    description:
+      'Content websites backed by a Strapi headless CMS so clients can update content without a developer.',
+    tags: ['Strapi', 'Headless CMS', 'React'],
+  },
+  {
+    title: 'Marketing and landing pages',
+    description:
+      'Fast, responsive landing pages and marketing sites for client products, built to convert.',
+    tags: ['Landing pages', 'Responsive UI', 'Tailwind CSS'],
+  },
+  {
+    title: 'Company websites',
+    description:
+      'Company websites with a content management system, delivered for software and service businesses.',
+    tags: ['Websites', 'CMS', 'Responsive UI'],
   },
 ]);

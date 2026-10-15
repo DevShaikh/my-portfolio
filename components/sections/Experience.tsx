@@ -1,29 +1,4 @@
-const experience = [
-  {
-    title: 'Full-Stack Engineer',
-    company: 'Quantum Skye Technologies',
-    period: 'Jan 2022 – Sep 2026',
-    description:
-      'Built production SaaS platforms for real-estate, finance, and operational workflows, handling everything from API design and database architecture to product UX, AI features, and deployment.',
-    bullets: [
-      'Built LLM product workflows using Anthropic Claude with prompt engineering, structured JSON outputs, token optimization, and SSE streaming.',
-      'Delivered deal analysis, buyer matching, payment flows, and dashboard features for real-estate operations teams.',
-      'Worked across frontend, backend, Prisma data models, Stripe billing, and deployment for business-critical products.',
-    ],
-  },
-  {
-    title: 'Independent Product Engineer',
-    company: 'Custom SaaS and workflow products',
-    period: '2021 – 2022',
-    description:
-      'Built end-to-end web apps and workflow tooling for secure file sharing, operational automation, and product experimentation, shipping features from requirement gathering through deployment.',
-    bullets: [
-      'Created secure file-sharing and backend proxy features with authenticated API flows and validation layers.',
-      'Designed business workflow systems to replace spreadsheets and fragmented manual processes with central, structured products.',
-      'Owned product delivery from architecture and implementation to iteration, cloud deployment, and real-world usage support.',
-    ],
-  },
-];
+import { experience } from '@/content/experience';
 
 export function Experience() {
   return (
@@ -45,7 +20,7 @@ export function Experience() {
         <div className="mt-10 border-t border-slate-800">
           {experience.map((item) => (
             <article
-              key={item.company}
+              key={`${item.title}-${item.period}`}
               className="grid gap-5 border-b border-slate-800 py-7 lg:grid-cols-[minmax(13rem,0.75fr)_1.5fr] lg:gap-10"
             >
               <div>
@@ -58,13 +33,31 @@ export function Experience() {
 
               <div>
                 <p className="max-w-3xl text-sm leading-7 text-slate-300">{item.description}</p>
-                <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-400">
-                  {item.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-3">
-                      <span className="text-emerald-400" aria-hidden="true">
-                        /
-                      </span>
-                      <span>{bullet}</span>
+                {item.groups.map((group) => (
+                  <section key={group.label} className="mt-5">
+                    <h4 className="text-sm font-semibold text-white">{group.label}</h4>
+                    <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-400">
+                      {group.bullets.map((bullet) => (
+                        <li key={bullet} className="flex gap-3">
+                          <span className="text-emerald-400" aria-hidden="true">
+                            /
+                          </span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                ))}
+                <ul
+                  className="mt-5 flex flex-wrap gap-2 border-t border-slate-800 pt-4"
+                  aria-label={`${item.title} skills`}
+                >
+                  {item.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="rounded-sm border border-white/[0.08] bg-black/20 px-2.5 py-1 text-xs font-medium text-slate-300"
+                    >
+                      {skill}
                     </li>
                   ))}
                 </ul>
