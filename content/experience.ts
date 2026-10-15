@@ -62,4 +62,22 @@ export const experience = z.array(experienceEntrySchema).parse([
     groups: [],
     skills: ['JavaScript', 'React', 'Next.js', 'Node.js', 'MongoDB'],
   },
+  {
+    title: 'Full Stack Developer',
+    company: 'Awaissoft',
+    period: 'May 2019 - Nov 2020',
+    description:
+      'Focused on building programming logic and implementing interactive functionality with JavaScript, strengthening my software development foundations.',
+    groups: [],
+    skills: ['JavaScript', 'Logic Building', 'Software Development'],
+  },
+  {
+    title: 'Web Developer',
+    company: 'WAMT Engineers',
+    period: 'Jul 2017 - Dec 2018',
+    description:
+      'Built foundational web development skills by turning PSD designs into web pages with HTML, CSS, Bootstrap, and JavaScript.',
+    groups: [],
+    skills: ['Web Development', 'HTML', 'CSS', 'Bootstrap', 'PSD to HTML', 'JavaScript'],
+  },
 ]);
