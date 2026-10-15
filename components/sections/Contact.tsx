@@ -1,7 +1,12 @@
+'use client';
+
+import { motion, useReducedMotion } from 'motion/react';
 import { ArrowUpRight, BriefcaseBusiness, Code2, FileText, Mail } from 'lucide-react';
 import { profile } from '@/content/profile';
+import { Reveal } from '@/components/ui/Reveal';
 
 export function Contact() {
+  const prefersReducedMotion = useReducedMotion();
   const channels = [
     { label: 'Email', value: profile.email, href: `mailto:${profile.email}`, icon: Mail },
     { label: 'LinkedIn', value: 'Connect', href: profile.linkedin, icon: BriefcaseBusiness },
@@ -13,10 +18,10 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="border-t border-white/5 bg-[#050a0e]"
+      className="scroll-mt-24 border-t border-white/5 bg-[#050a0e]"
     >
       <div className="mx-auto max-w-page px-5 py-20">
-        <div className="relative overflow-hidden rounded-lg border border-emerald-300/15 bg-[radial-gradient(ellipse_at_100%_0%,rgba(16,185,129,0.15),transparent_42%),linear-gradient(135deg,#0d191d,#0b1118_65%,#11151a)] p-7 shadow-xl shadow-black/20 sm:p-10">
+        <Reveal className="relative overflow-hidden rounded-lg border border-emerald-300/15 bg-[radial-gradient(ellipse_at_100%_0%,rgba(16,185,129,0.15),transparent_42%),linear-gradient(135deg,#0d191d,#0b1118_65%,#11151a)] p-7 shadow-xl shadow-black/20 sm:p-10">
           <div
             aria-hidden="true"
             className="absolute right-8 top-8 hidden h-24 w-24 rotate-12 border border-emerald-200/10 sm:block"
@@ -40,10 +45,12 @@ export function Contact() {
               const Icon = channel.icon;
 
               return (
-                <li
+                <motion.li
                   key={channel.label}
-                  className="animate-fade-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  initial={prefersReducedMotion ? undefined : { opacity: 0, y: 18 }}
+                  whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.06 }}
                 >
                   <a
                     className="group block h-full rounded-md border border-white/10 bg-black/25 p-4 transition-all hover:-translate-y-1 hover:border-emerald-200/30 hover:bg-emerald-300/[0.06]"
@@ -64,11 +71,11 @@ export function Contact() {
                       {channel.value}
                     </span>
                   </a>
-                </li>
+                </motion.li>
               );
             })}
           </ul>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

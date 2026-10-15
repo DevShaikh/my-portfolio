@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ArrowUpRight,
   Building2,
@@ -6,12 +8,14 @@ import {
   ShoppingBag,
   Sparkles,
 } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
 import {
   moreClientWork,
   moreClientWorkNote,
   moreClientWorkTitle,
   projects,
 } from '@/content/projects';
+import { Reveal } from '@/components/ui/Reveal';
 
 const projectVisuals = [
   {
@@ -109,6 +113,8 @@ function ProjectPreview({ index }: { index: number }) {
 }
 
 export function Projects() {
+  const prefersReducedMotion = useReducedMotion();
+
   if (!projects.length) return null;
 
   const publicProjects = [
@@ -136,17 +142,17 @@ export function Projects() {
     <section
       id="work"
       aria-labelledby="work-title"
-      className="border-t border-white/5 bg-[#070d12]"
+      className="scroll-mt-24 border-t border-white/5 bg-[#070d12]"
     >
       <div className="mx-auto max-w-page px-5 py-20">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.12em] text-emerald-400">
             Selected work
           </p>
           <h2 id="work-title" className="mt-3 text-3xl font-bold tracking-tight text-white">
             Production products and open-source work.
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mt-12">
           <div className="mb-5 flex flex-wrap items-baseline justify-between gap-3">
@@ -156,12 +162,26 @@ export function Projects() {
 
           <div className="grid gap-5 md:grid-cols-2">
             {projects.map((p, index) => (
-              <article
+              <motion.article
                 key={p.slug}
                 id={p.slug}
+                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 18 }}
+                whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.18 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.06 }}
+                whileHover={prefersReducedMotion ? undefined : { y: -6 }}
+                whileTap={prefersReducedMotion ? undefined : { scale: 0.995 }}
                 className="group overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 transition-colors duration-300 hover:border-emerald-300/30"
               >
-                <ProjectPreview index={index} />
+                <div className="overflow-hidden">
+                  <motion.div
+                    whileHover={prefersReducedMotion ? undefined : { scale: 1.03 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                    className="h-full"
+                  >
+                    <ProjectPreview index={index} />
+                  </motion.div>
+                </div>
 
                 <div className="p-5 sm:p-6">
                   <div className="flex items-start justify-between gap-4">
@@ -191,7 +211,7 @@ export function Projects() {
                     {p.stack.join('  ·  ')}
                   </p>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -204,8 +224,14 @@ export function Projects() {
             <p className="mt-1 text-sm text-slate-500">{moreClientWorkNote}</p>
           </div>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {moreClientWork.map((item) => (
-              <li key={item.title}>
+            {moreClientWork.map((item, index) => (
+              <motion.li
+                key={item.title}
+                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 14 }}
+                whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1], delay: index * 0.05 }}
+              >
                 <article className="h-full rounded-md border border-white/10 bg-slate-900/50 p-4 transition-colors hover:border-emerald-300/25">
                   <h4 className="font-semibold text-white">{item.title}</h4>
                   <p className="mt-2 text-sm leading-6 text-slate-400">{item.description}</p>
@@ -220,7 +246,7 @@ export function Projects() {
                     ))}
                   </ul>
                 </article>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </section>
@@ -237,9 +263,13 @@ export function Projects() {
           </div>
 
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {publicProjects.map((project) => (
-              <li
+            {publicProjects.map((project, index) => (
+              <motion.li
                 key={project.name}
+                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 12 }}
+                whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1], delay: index * 0.04 }}
                 className="rounded-md border border-white/10 bg-slate-900/50 transition-colors hover:border-emerald-300/25"
               >
                 <a
@@ -258,7 +288,7 @@ export function Projects() {
                   <p className="mt-1 text-sm leading-6 text-slate-400">{project.description}</p>
                   <p className="mt-4 text-xs text-slate-500">{project.stack}</p>
                 </a>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>
