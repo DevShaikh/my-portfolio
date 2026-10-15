@@ -1,24 +1,126 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { profile } from '../content/profile';
+import { aboutContent, profile } from '../content/profile';
 import { projects } from '../content/projects';
-import { skills } from '../content/skills';
+import { capabilitiesContent } from '../content/skills';
 import { projectSchema } from '../content/schema';
+
+const previousCapabilityTags = [
+  'Product thinking',
+  'System design',
+  'User experience design',
+  'Workflow automation',
+  'SaaS UX',
+  'Landing pages',
+  'Dashboards',
+  'Admin panels',
+  'Next.js',
+  'Next.js App Router',
+  'React',
+  'React Server Components',
+  'TypeScript',
+  'JavaScript',
+  'Node.js',
+  'Express.js',
+  'REST APIs',
+  'API design',
+  'WebSockets',
+  'Socket.io',
+  'Tailwind CSS',
+  'Responsive UI',
+  'shadcn/ui',
+  'Framer Motion',
+  'Zustand',
+  'React Query',
+  'React Hook Form',
+  'Zod validation',
+  'Component architecture',
+  'Strapi (headless CMS)',
+  'JWT',
+  'OAuth',
+  'NextAuth',
+  'Role-based access control',
+  'Rate limiting',
+  'Stripe webhooks',
+  'Cron jobs',
+  'Nodemailer',
+  'Error handling',
+  'Anthropic Claude API',
+  'OpenAI API',
+  'Prompt engineering',
+  'Structured JSON output',
+  'SSE streaming',
+  'LLM workflows',
+  'Workflow orchestration',
+  'AI-assisted product features',
+  'Automation design',
+  'Token optimization',
+  'MongoDB',
+  'Mongoose',
+  'Prisma ORM',
+  'Aggregation pipelines',
+  'Indexing',
+  'Schema design',
+  'Data modeling',
+  'Firebase',
+  'Secure sessions',
+  'Access control',
+  'Secrets management',
+  'Vercel',
+  'Heroku',
+  'Nginx',
+  'Sentry',
+  'Stripe',
+  'CI/CD',
+  'GitHub Actions',
+  'Environment configuration',
+  'Production deployment',
+  'Monitoring',
+  'Git',
+  'GitHub',
+  'Postman',
+];
 
 describe('content integrity', () => {
   it('profile points to a resume file that really exists in /public', () => {
     expect(existsSync(join(process.cwd(), 'public', profile.resume))).toBe(true);
   });
 
-  it('skills have no empty groups or duplicate items within a group', () => {
-    for (const g of skills) {
-      expect(g.description.length).toBeGreaterThanOrEqual(20);
-      expect(new Set(g.items.map((i) => i.toLowerCase())).size).toBe(g.items.length);
+  it('preserves every previous capability tag exactly once', () => {
+    const capabilityTags = capabilitiesContent.cards.flatMap((card) => [
+      ...card.core,
+      ...card.alsoUsed,
+    ]);
+    capabilityTags.push(...capabilitiesContent.collaborationTags);
+    const normalizedTags = capabilityTags.map((tag) => tag.toLowerCase());
+
+    expect(capabilitiesContent.cards).toHaveLength(6);
+    expect(previousCapabilityTags).toHaveLength(73);
+    expect(new Set(normalizedTags).size).toBe(normalizedTags.length);
+    expect(
+      previousCapabilityTags.filter(
+        (tag) => normalizedTags.filter((candidate) => candidate === tag.toLowerCase()).length !== 1,
+      ),
+    ).toEqual([]);
+  });
+
+  it('About content has the requested stat, focus, and link counts', () => {
+    expect(aboutContent.stats).toHaveLength(3);
+    expect(aboutContent.focusAreas).toHaveLength(5);
+    expect(aboutContent.links.map((link) => link.label)).toEqual([
+      'GitHub',
+      'LinkedIn',
+      'Email',
+      'Resume',
+    ]);
+  });
+
+  it('capability cards have descriptions and core tags', () => {
+    for (const group of capabilitiesContent.cards) {
+      expect(group.description.length).toBeGreaterThanOrEqual(20);
+      expect(group.core.length).toBeGreaterThan(0);
     }
-    expect(skills).toHaveLength(4);
-    const allItems = skills.flatMap((g) => g.items.map((item) => item.toLowerCase()));
-    expect(new Set(allItems).size).toBe(allItems.length);
   });
 
   it('portfolio includes at least one project showcase entry', () => {

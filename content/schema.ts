@@ -12,10 +12,42 @@ export const profileSchema = z.object({
   resume: z.string().startsWith('/'),
 });
 
+export const aboutContentSchema = z.object({
+  eyebrow: z.string().min(1),
+  heading: z.string().min(1),
+  paragraphs: z.tuple([z.string().min(1), z.string().min(1)]),
+  stats: z.array(z.object({ value: z.string().min(1), label: z.string().min(1) })).length(3),
+  focusHeading: z.string().min(1),
+  focusAreas: z.array(z.string().min(1)).length(5),
+  availability: z.string().min(1),
+  linksLabel: z.string().min(1),
+  links: z
+    .array(
+      z.object({
+        label: z.string().min(1),
+        href: z.string().min(1),
+        external: z.boolean(),
+      }),
+    )
+    .length(4),
+});
+
 export const skillGroupSchema = z.object({
   label: z.string().min(2),
+  icon: z.enum(['code', 'brain', 'database', 'shield', 'dashboard', 'tools']),
   description: z.string().min(20),
-  items: z.array(z.string().min(1)).min(1),
+  core: z.array(z.string().min(1)).min(1),
+  alsoUsed: z.array(z.string().min(1)),
+});
+
+export const capabilitiesContentSchema = z.object({
+  eyebrow: z.string().min(1),
+  heading: z.string().min(1),
+  coreLabel: z.string().min(1),
+  alsoUsedLabel: z.string().min(1),
+  collaborationLabel: z.string().min(1),
+  cards: z.array(skillGroupSchema).length(6),
+  collaborationTags: z.array(z.string().min(1)).min(1),
 });
 
 export const projectSchema = z.object({
