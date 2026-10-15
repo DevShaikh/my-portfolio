@@ -99,14 +99,12 @@ export const moreClientWork = z.array(moreClientWorkSchema).parse([
   },
   {
     title: 'Marketing and landing pages',
-    description:
-      'Fast, responsive landing pages and marketing sites for client products, built to convert.',
+    description: 'Fast, responsive landing pages and marketing sites for client products.',
     tags: ['Landing pages', 'Responsive UI', 'Tailwind CSS'],
   },
   {
     title: 'Company websites',
-    description:
-      'Company websites with a content management system, delivered for software and service businesses.',
+    description: 'Company websites with a content management system, delivered for clients.',
     tags: ['Websites', 'CMS', 'Responsive UI'],
   },
 ]);

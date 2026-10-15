@@ -8,7 +8,7 @@ import { Footer } from '@/components/Footer';
 const description = `${profile.headline} ${profile.intro}`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://devshaikh.vercel.app'),
   alternates: { canonical: '/' },
   title: { default: `${profile.name} | ${profile.role}`, template: `%s | ${profile.name}` },
   description,
