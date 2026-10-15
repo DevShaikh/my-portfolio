@@ -92,7 +92,7 @@ export function Skills() {
                   ))}
                 </ul>
 
-                <p className="mb-2 mt-4 text-xs font-medium text-slate-500">
+                <p className="mb-2 mt-4 text-xs font-medium text-slate-400">
                   {capabilitiesContent.alsoUsedLabel}
                 </p>
                 <ul
